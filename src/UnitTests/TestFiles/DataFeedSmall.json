@@ -1,0 +1,11 @@
+﻿{
+	"success": true,
+	"timestamp": 1541812746,
+	"base": "EUR",
+	"date": "2018-11-10",
+	"rates": {
+		"ETB": 31.813406,
+		"EUR": 1,
+		"GBP": 0.873592
+	}
+}
