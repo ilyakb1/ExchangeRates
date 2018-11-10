@@ -1,4 +1,4 @@
-﻿using ExchangeRateDownloader;
+﻿using ExchangeRateService.Infrastructure.Data;
 using NUnit.Framework;
 using System;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace ExchangeRateService.UnitTests
 	public class DataFeedMapperTests
 	{
 		[Test]
-		public void MapCorrectDataFeed()
+		public void MapJsonToDataFeed()
 		{
 			var text = TestHelper.GetEmbeddedResourceAsString("TestFiles.DataFeedSmall.json");
 			var mapper = new DataFeedMapper();
@@ -21,6 +21,17 @@ namespace ExchangeRateService.UnitTests
 			Assert.AreEqual(3, dataFeed.Rates.Count);
 			Assert.AreEqual("ETB", dataFeed.Rates.Keys.First());
 			Assert.AreEqual(31.813406m, dataFeed.Rates[dataFeed.Rates.Keys.First()]);
+		}
+
+
+		[Test]
+		public void MapJsonToFullDataFeed()
+		{
+			var text = TestHelper.GetEmbeddedResourceAsString("TestFiles.DataFeed.json");
+			var mapper = new DataFeedMapper();
+			var dataFeed = mapper.Map(text);
+
+			Assert.AreEqual(168, dataFeed.Rates.Keys.Count);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ExchangeRateDownloader
+namespace ExchangeRateService.Domain.Entities
 {
 	public class DataFeed
 	{

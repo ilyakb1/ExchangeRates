@@ -2,26 +2,25 @@
 using ExchangeRateService.Domain.Interfaces;
 using ExchangeRateService.Services.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExchangeRateService.Services
 {
-	public class ExchangeRateService : IExchangeRateService
+	public class DataFeedService : IDataFeedService
 	{
-		readonly IExchangeRateRepository repository;
+		readonly IDataFeedRepository repository;
 
-		public ExchangeRateService(IExchangeRateRepository repository)
+		public DataFeedService(IDataFeedRepository repository)
 		{
 			this.repository = repository ?? throw new ArgumentNullException(nameof(repository));
 		}
 
-		public async Task SaveAsync(ExchangeRatePair[] pairs)
+		public async Task SaveAsync(DataFeed dataFeed)
 		{
-			await repository.SaveAsync(pairs);
+			await repository.SaveAsync(dataFeed);
 		}
 
-		public async Task<IEnumerable<ExchangeRatePair>> LoadAsync()
+		public async Task<DataFeed> LoadAsync()
 		{
 			return await repository.LoadAsync();
 		}
