@@ -2,13 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>ExchangeRateService.Services</AssemblyName>
-    <RootNamespace>ExchangeRateService.Services</RootNamespace>
+    <AssemblyName>ExchangeRateService.Infrastructure.Data</AssemblyName>
+    <RootNamespace>ExchangeRateService.Infrastructure.Data</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain.Interfaces\Domain.Interfaces.csproj" />
-    <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

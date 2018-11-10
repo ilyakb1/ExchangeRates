@@ -6,4 +6,8 @@
     <RootNamespace>ExchangeRateService.Services.Interfaces</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

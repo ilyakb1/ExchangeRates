@@ -2,8 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>ExchangeReateService.Domain.Interfaces</AssemblyName>
-    <RootNamespace>ExchangeReateService.Domain.Interfaces</RootNamespace>
+    <AssemblyName>ExchangeRateService.Domain.Interfaces</AssemblyName>
+    <RootNamespace>ExchangeRateService.Domain.Interfaces</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj" />
+  </ItemGroup>
 
 </Project>

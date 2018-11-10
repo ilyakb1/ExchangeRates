@@ -5,19 +5,21 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRateService", "ExchangeRateService\ExchangeRateService.csproj", "{0937928D-F73A-455A-B752-87539E23BE57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateDownloader", "ExchangeRateDownloader\ExchangeRateDownloader.csproj", "{47D298AF-9B88-4632-95D9-7BBF489BC03D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRateDownloader", "ExchangeRateDownloader\ExchangeRateDownloader.csproj", "{47D298AF-9B88-4632-95D9-7BBF489BC03D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Interfaces", "Domain.Interfaces\Domain.Interfaces.csproj", "{9D07FE2E-07DE-4ED2-81AC-FABB6D304B96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Interfaces", "Domain.Interfaces\Domain.Interfaces.csproj", "{9D07FE2E-07DE-4ED2-81AC-FABB6D304B96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Entities", "Domain.Entities\Domain.Entities.csproj", "{3A3E6538-04B0-48C4-9F69-6119EE085CFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Entities", "Domain.Entities\Domain.Entities.csproj", "{3A3E6538-04B0-48C4-9F69-6119EE085CFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{4398742D-9F13-4CEF-AC46-6F2F2710C311}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{4398742D-9F13-4CEF-AC46-6F2F2710C311}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Interfaces", "Services.Interfaces\Services.Interfaces.csproj", "{5C75B660-9F88-41DA-AC77-01C684441075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Interfaces", "Services.Interfaces\Services.Interfaces.csproj", "{5C75B660-9F88-41DA-AC77-01C684441075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{70BD8C7A-00BA-47A9-B75C-E006A59349CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{70BD8C7A-00BA-47A9-B75C-E006A59349CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{D9216E49-CB1B-4E1B-874A-1ECD3EF83134}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{D9216E49-CB1B-4E1B-874A-1ECD3EF83134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Data", "Infrastructure.Data\Infrastructure.Data.csproj", "{502E80F1-1271-4CBD-9DFA-0313994C8E37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{D9216E49-CB1B-4E1B-874A-1ECD3EF83134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9216E49-CB1B-4E1B-874A-1ECD3EF83134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9216E49-CB1B-4E1B-874A-1ECD3EF83134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{502E80F1-1271-4CBD-9DFA-0313994C8E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{502E80F1-1271-4CBD-9DFA-0313994C8E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{502E80F1-1271-4CBD-9DFA-0313994C8E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{502E80F1-1271-4CBD-9DFA-0313994C8E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

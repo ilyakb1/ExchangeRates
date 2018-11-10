@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>ExchangeReateService.Domain.Entities</AssemblyName>
-    <RootNamespace>ExchangeReateService.Domain.Entities</RootNamespace>
+    <AssemblyName>ExchangeRateService.Domain.Entities</AssemblyName>
+    <RootNamespace>ExchangeRateService.Domain.Entities</RootNamespace>
   </PropertyGroup>
 
 </Project>
