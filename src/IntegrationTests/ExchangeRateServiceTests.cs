@@ -8,6 +8,7 @@ namespace ExchangeRateService.IntegrationTests
 	public class ExchangeRateServiceTests
 	{
 		[Test]
+		[Ignore("Final test")]
 		public async Task CallExchangeRateServiceGetRates()
 		{
 			using (var client = new HttpClient())
