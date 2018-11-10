@@ -1,3 +1,32 @@
+#Design
+![picture](img/diagram.gif)
+#Decisions and assumptions
+To keep request rate under the limit and because we have multiple service nodes, worker process was introduced.
+### Worker process - ExchangeRateDownloadService
+Read new rates from external api based on schedule and save exchange pairs into storage.
+Based on fixer:
+    -1.000 API Calls
+    -Hourly Updates
+Service will read data once an hour. In this case it will be 720 call per month.
+
+Conversion rate should be with 5 decimal places precision
+
+For Windows we can use Schedule task
+
+###Storage
+For simplicity i will use network folder share with files. 
+Each hour service will download and create new file with new rates with tmp extension and after writing completed will rename file to txt extension.
+File name format: exchangerates_2018111013.txt
+
+Fututre To Do: Another service which will cleanup or archived the files after one day should be introduced.
+
+###Service node - ExchangeRateService
+Self hosted rest service in console. 
+Upon request read data from file share (last file by date with txt extension).
+Will cache information for 5 minutes in local cache.
+Use swagger for service description.
+
+# Requirements
 # Exchange Rate Service
 
 In order for a Bookmaker to see their liabilities in a common currency, An exchange rate microservice is required. This exchange rate service will be responsible for collection and delivery of exchange rate values to internal clients. 
