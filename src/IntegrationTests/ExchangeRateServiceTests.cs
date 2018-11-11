@@ -8,8 +8,6 @@ namespace ExchangeRateService.IntegrationTests
 	[TestFixture]
 	public class ExchangeRateServiceTests
 	{
-		[Test]
-		[Ignore("End to end test. Run service host before execute test")]
 		public async Task CallExchangeRateServiceGetRates()
 		{
 			new Startup().RunAsync().Wait();
