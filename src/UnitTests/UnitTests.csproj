@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Moq" Version="4.10.0" />
     <PackageReference Include="NUnit" Version="3.11.0" />
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExchangeRateDownloader\ExchangeRateDownloader.csproj" />
+    <ProjectReference Include="..\ExchangeRateService\ExchangeRateService.csproj" />
     <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>

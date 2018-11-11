@@ -2,6 +2,8 @@
 ![picture](img/diagram.gif)
 #Decisions and assumptions
 To keep request rate under the limit and because we have multiple service nodes, worker process was introduced.
+Also worker will help if external service is offline. We can use existing data.
+
 ### Worker process - ExchangeRateDownloadService
 Read new rates from external api based on schedule and save exchange pairs into storage.
 Based on fixer:
@@ -19,6 +21,7 @@ Each hour service will download and create new file with new rates with tmp exte
 File name format: exchangerates_2018111013.txt
 
 Fututre To Do: Another service which will cleanup or archived the files after one day should be introduced.
+To make storage work default user temp directory should be accessible for tests and user account used to run Worker and Web Api Services
 
 ###Service node - ExchangeRateService
 Self hosted rest service in console. 
