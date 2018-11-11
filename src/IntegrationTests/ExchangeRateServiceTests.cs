@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using ExchangeRateDownloader;
+using NUnit.Framework;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -8,15 +9,18 @@ namespace ExchangeRateService.IntegrationTests
 	public class ExchangeRateServiceTests
 	{
 		[Test]
-		[Ignore("Final test")]
+		[Ignore("End to end test. Run service host before execute test")]
 		public async Task CallExchangeRateServiceGetRates()
 		{
+			new Startup().RunAsync().Wait();
+
+
 			using (var client = new HttpClient())
 			{
-				var response = await client.GetAsync("v1/exchange-rate/convert/base/usd/target/aud");
+				var response = await client.GetAsync("https://localhost:5001/v1/exchangerate/convert/basecurrency/usd/targetcurrency/aud");
 				response.EnsureSuccessStatusCode();
 				var text = response.Content.ReadAsStringAsync();
-				Assert.AreEqual("", text);
+				Assert.IsNotNull(text);
 			}
 		}
 	}
