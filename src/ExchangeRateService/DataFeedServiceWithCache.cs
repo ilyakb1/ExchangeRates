@@ -3,18 +3,19 @@ using ExchangeRateService.Services.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Threading.Tasks;
+using ExchangeRateService.Services;
 
 namespace ExchangeRateService
 {
 	public class DataFeedServiceWithCache : IDataFeedService
 	{
-		readonly IDataFeedService dataFeedService;
+		readonly DataFeedService dataFeedService;
 		readonly IMemoryCache memoryCache;
 		readonly ExchangeRateServiceConfiguration configuration;
 		const string CacheKey = "DataFeed";
 
 		public DataFeedServiceWithCache(
-			IDataFeedService dataFeedService,
+			DataFeedService dataFeedService,
 			IMemoryCache memoryCache,
 			ExchangeRateServiceConfiguration configuration)
 		{
