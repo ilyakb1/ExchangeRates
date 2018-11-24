@@ -1,5 +1,4 @@
 ﻿using ExchangeRateService.Domain.Entities;
-using ExchangeRateService.Services;
 using ExchangeRateService.Services.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using System;
@@ -15,7 +14,7 @@ namespace ExchangeRateService
 		const string CacheKey = "DataFeed";
 
 		public DataFeedServiceWithCache(
-			DataFeedService dataFeedService,
+			IDataFeedService dataFeedService,
 			IMemoryCache memoryCache,
 			ExchangeRateServiceConfiguration configuration)
 		{
@@ -33,7 +32,7 @@ namespace ExchangeRateService
 		{
 			return await memoryCache.GetOrCreateAsync<DataFeed>(CacheKey, cacheEntry =>
 			{
-				cacheEntry.SlidingExpiration = configuration.CacheDuration;
+				cacheEntry.AbsoluteExpirationRelativeToNow = configuration.CacheDuration;
 				return dataFeedService.LoadAsync();
 			});
 		}

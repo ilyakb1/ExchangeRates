@@ -101,5 +101,35 @@ namespace ExchangeRateService.IntegrationTests
 			var dataFeed = await repository.LoadAsync();
 			Assert.AreEqual(dataFeed2.Timestamp, dataFeed.Timestamp, "Should load latest DataFeed");
 		}
+
+
+		[Test]
+		public async Task ReadLatestDataFeed_ConcurrentRead()
+		{
+			var filePath = await GenerateDummyTextFileAsync(50000000);
+
+			var task1 = File.ReadAllTextAsync(filePath);
+			var task2 = File.ReadAllTextAsync(filePath);
+			var tasks = new[] { task1, task2 };
+
+			Task.WaitAll(tasks);
+		}
+
+		static async Task<string> GenerateDummyTextFileAsync(int fileSizeInBytes)
+		{
+			var filePath = Path.GetTempFileName();
+			using (var writer = new StreamWriter(filePath))
+			{
+				int byteCount = 0;
+				var testString = "Simply create the file, seek to a suitably large offset, and write a single byte.";
+				while (byteCount < fileSizeInBytes)
+				{
+					await writer.WriteLineAsync(testString);
+					byteCount += testString.Length;
+				}
+			}
+
+			return filePath;
+		}
 	}
 }
