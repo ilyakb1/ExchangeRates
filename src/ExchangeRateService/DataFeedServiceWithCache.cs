@@ -1,9 +1,10 @@
 ﻿using ExchangeRateService.Domain.Entities;
+using ExchangeRateService.Services;
 using ExchangeRateService.Services.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
-using ExchangeRateService.Services;
 
 namespace ExchangeRateService
 {
@@ -13,6 +14,7 @@ namespace ExchangeRateService
 		readonly IMemoryCache memoryCache;
 		readonly ExchangeRateServiceConfiguration configuration;
 		const string CacheKey = "DataFeed";
+		static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
 
 		public DataFeedServiceWithCache(
 			DataFeedService dataFeedService,
@@ -31,10 +33,18 @@ namespace ExchangeRateService
 
 		public async Task<DataFeed> LoadAsync()
 		{
-			return await memoryCache.GetOrCreateAsync<DataFeed>(CacheKey, cacheEntry =>
+			return await memoryCache.GetOrCreateAsync<DataFeed>(CacheKey, async cacheEntry =>
 			{
-				cacheEntry.AbsoluteExpirationRelativeToNow = configuration.CacheDuration;
-				return dataFeedService.LoadAsync();
+				await semaphoreSlim.WaitAsync();
+				try
+				{
+					cacheEntry.AbsoluteExpirationRelativeToNow = configuration.CacheDuration;
+					return await dataFeedService.LoadAsync();
+				}
+				finally
+				{
+					semaphoreSlim.Release();
+				}
 			});
 		}
 	}
